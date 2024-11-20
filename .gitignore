@@ -7,3 +7,7 @@ dist
 build
 main.spec
 test/
+.env
+*.pdf
+*.ps1
+discard/
