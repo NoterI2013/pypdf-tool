@@ -6,13 +6,13 @@ from utils.format import FilenameRange, parse_filepath_range
 
 @click.command()
 @click.argument('filepath', callback=lambda ctx, param, value: parse_filepath_range(value))
-@click.option('--output', '-o', 'opath', default="output.pdf", show_default = True, help = "Specify the output path.")
+@click.option('--output', '-o', 'opath', default="./output.pdf", show_default = True, help = "Specify the output path.")
 @click.option('--encrypt', '-e', 'password', help="Encrypt with give password.")
 
-def copy(filepath: FilenameRange, opath: str, password: bool):
+def copy(filepath: FilenameRange, opath: str, password: str):
 
     '''
-    copy a pdf file
+    Copy a pdf file
     '''
 
     # Guard

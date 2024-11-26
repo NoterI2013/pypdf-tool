@@ -30,8 +30,10 @@ def is_valid_range(instance: PdfReader, start: int, end: int, step: int) -> tupl
         return (False, "Invalid step number: it should be a non-zero integer")
     elif start < 0:
         return (False, "Invalid start-page: it should be a positive integer")
-    elif stop < 0:
-        return (False, "Invalid end-page: it should a positive integer")
+    elif stop < 0 and step > 0:
+        return (False, "Invalid end-page: it should a positive integer for the increasing step")
+    elif stop < -2 and step < 0:
+        return (False, "Invalid end-page: it should a positive integer for the decreasing step")
     else:
         return (True, "")
     
